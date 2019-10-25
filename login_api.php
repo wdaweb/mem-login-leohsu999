@@ -8,8 +8,27 @@
  * 5.根據比對的結果決定畫面的行為
   ***************************************************/
 
+$acc=$_POST['acc'];
+$px=$_POST['pw'];
+
+echo "acc=".$acc;
+echo "<br>";
+echo "pw=".$pw;
+
+$dsn="mysql:host=localhost;charset=itf8;dbname=mydb";
+$pdo=new PDO($dsn,'root',"");
+
+$sql="select *from user where acc='$acc'&& pw='$pw'";
+
+$data=$pdo->query($sql)->fetch();
+
+print_r($data);
 
 
-
+if($acc==$date['acc']) &&$pw=$date['pw']}{
+  echo "登入成功";
+  }else{
+  echo"登入失敗";
+  }
 
 ?>
