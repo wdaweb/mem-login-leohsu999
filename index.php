@@ -11,7 +11,11 @@
 <body>
   <?php
 if(!empty($_GET['s'])){
-  echo"註冊成功,請輸入帳密以登入";
+  echo "註冊成功,請輸入帳密以登入";
+}
+
+if(!empty($_GET['err'])){
+  echo "<h2>帳號或密碼錯誤</h2>";
 }
 
   ?>
