@@ -9,26 +9,49 @@
   ***************************************************/
 
 $acc=$_POST['acc'];
-$px=$_POST['pw'];
+$pw=$_POST['pw'];
 
 echo "acc=".$acc;
 echo "<br>";
 echo "pw=".$pw;
 
-$dsn="mysql:host=localhost;charset=itf8;dbname=mydb";
+$dsn="mysql:host=localhost;charset=utf8;dbname=mydb";
 $pdo=new PDO($dsn,'root',"");
 
-$sql="select *from user where acc='$acc'&& pw='$pw'";
+$sql="select count(*) as 'r' from user where acc='$acc' && pw='$pw'";
 
+//$data=$pdo->query($sql)->fetchcolumn();
 $data=$pdo->query($sql)->fetch();
+
+
 
 print_r($data);
 
-
-if($acc==$date['acc']) &&$pw=$date['pw']}{
+if($data['r']==1){
   echo "登入成功";
-  }else{
-  echo"登入失敗";
-  }
+}else{
+  echo "登入失敗";
+}
+
+
+
+// if($data){
+//   echo "登入成功";
+// }else{
+//   echo "登入失敗";
+// }
+
+
+// if(!empty($data)){
+//   echo "登入成功";
+// }else{
+//   echo "登入失敗";
+// }
+
+// if($acc==$data['acc']) && $pw=$data['pw']}{
+//   echo "登入成功";
+//   }else{
+//   echo"登入失敗";
+//   }
 
 ?>
