@@ -7,6 +7,7 @@
  * 4.比對表單資料和資料庫資料是否一致
  * 5.根據比對的結果決定畫面的行為
   ***************************************************/
+include "base.php";
 
 $acc=$_POST['acc'];
 $pw=$_POST['pw'];
@@ -28,9 +29,9 @@ $data=$pdo->query($sql)->fetch();
 
 print_r($data);
 
-if(!empty($data){
+if(!empty($data)){
   echo "登入成功";
-  header("location:member_center.php?id=".$data['id']");
+  header("location:member_center.php?id=".$data['id']);
 }else{
   echo "登入失敗";
   header("location:index.php?err=1");
